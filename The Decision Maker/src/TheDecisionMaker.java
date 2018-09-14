@@ -5,17 +5,29 @@ public class TheDecisionMaker
 
 		public static void main(String[] args)
 			{
-				Scanner userInput1 = new Scanner(System.in);
+				Scanner userInput = new Scanner(System.in);
 				System.out.println("How many choices are you considering?");
-				int numberOfChoices = userInput1.nextInt();
-				String [] choices = new String[numberOfChoices];
-				for (int i = 0; i<choices.length-1; i++);
+				int numberOfChoices = userInput.nextInt();
+				String [] array = new String[numberOfChoices];
+				Boolean counterIsLess = true; 
+				int counter = 0; 
+				do 
 					{
-					System.out.println("Input each choice one by one, followed by pressing the enter key after you input each choice.");
-					Scanner userInput2 = new Scanner(System.in);
-					String specificChoices = userInput2.nextLine(); 
-					choices[i]=specificChoices; 
+						if (counter<array.length)
+							{
+								System.out.println("Input choice #" + (counter+1) + ".");
+								String userChoice = userInput.nextLine(); 
+								array[counter] = userChoice; 
+								counter++;
+							}
+						else if (counter>array.length)
+							{
+								counterIsLess = false; 
+							}
 					}
+				
+				while(counterIsLess);
+				System.out.println(array);
 			}
 
 	}
