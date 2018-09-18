@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class TheDecisionMaker
@@ -9,26 +10,18 @@ public class TheDecisionMaker
 				System.out.println("How many choices are you considering?");
 				int numberOfChoices = userInput.nextInt();
 				String [] array = new String[numberOfChoices];
-				Boolean counterIsLess = true; 
-				int counter = 0; 
-				do 
-					{
-						if (counter<array.length)
-							{
-								System.out.println("Input choice #" + (counter+1) + ".");
-								String userChoice = userInput.nextLine(); 
-								array[counter] = userChoice; 
-								counter++;
-							}
-						else if (counter>array.length)
-							{
-								counterIsLess = false; 
-							}
-					}
 				
-				while(counterIsLess);
-				System.out.println(array);
+				for (int i = 0; i<array.length; i++)
+					{
+						System.out.println("Input choice #" + (i+1) + ".");
+						Scanner userChoice = new Scanner(System.in);
+						String actualChoice = userChoice.nextLine(); 
+						array[i] = actualChoice; 
+					}
+			
+				int generatedChoice = (int)(Math.random()*array.length);
+				System.out.println("You should choose " + (array[generatedChoice]) + ".");
 			}
-
+		
 	}
 
